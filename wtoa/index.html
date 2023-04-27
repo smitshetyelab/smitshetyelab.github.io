@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="SNG a mobile app for your website.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>SNG Website to App</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="css/responsive.css" rel="stylesheet">
+
+
+    <style>
+        /* The snackbar - position it at the bottom and in the middle of the screen */
+        #toast {
+            visibility: hidden;
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            width: 80%;
+            margin-left: 10%;
+            bottom: 30px;
+        }
+
+        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #toast.show {
+            visibility: visible;
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        /* Animations to fade the snackbar in and out */
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        #snackbar {
+            visibility: hidden;
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            bottom: 0px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadeinSnackbar 0.5s, fadeoutSnackbar 0.5s 2.5s;
+            animation: fadeinSnackbar 0.5s, fadeoutSnackbar 0.5s 2.5s;
+        }
+
+
+        @-webkit-keyframes fadeinSnackbar {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeinSnackbar {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeoutSnackbar {
+            from {
+                bottom: 0px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeoutSnackbar {
+            from {
+                bottom: 0px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="colorlib-load"></div>
+    </div>
+
+    <!-- ***** Wellcome Area Start ***** -->
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <h2>SNG</h2>
+                        <h3></h3>
+                        <p>Convert your Web Site to App</p>
+                    </div>
+                    <div class="get-start-area">
+                        <!-- Form Start -->
+                       <form method="get" id="url_form" class="form-inline">
+                            <input type="url" class="form-control email" name="url" id="url" placeholder="your website here" value="http://">
+                            <input type="submit" class="submit" value="Get Started">
+                        </form>
+                        <!-- Form End -->
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <!-- ***** Wellcome Area End ***** -->
+
+    <!-- ***** Special Area Start ***** -->
+    <section class="special-area bg-white" style="padding-top: 100px; padding-bottom: 50px;" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading Area -->
+                    <div class="section-heading text-center">
+                        <h2>Support any type of Media</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <!-- Single Special Area -->
+                <div class="col-12 col-md-4">
+                    <a href="http://www.youtube.com/">
+                        <img src="media_types/youtube.png">
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <a href="http://www.vimeo.com/">
+                        <img src="media_types/vimeo.png">
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <img src="media_types/audio.png">
+
+                    <audio controls style="width: 230px;
+                    position: absolute;
+                    top: 114px;
+                    left: 67px;">
+                        <source src="music.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio></img>
+                </div>
+                <div class="col-12 col-md-4">
+                    <img src="media_types/video.png">
+                    <video width="250" controls style=" 
+                    position: absolute;
+                    top: 95px;
+                    left: 56px;">
+                        <source src="mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    </img>
+                </div>
+                <div class="col-12 col-md-4">
+                    <img src="media_types/image.png">
+                    <img width="230" src="image.gif" style=" 
+                    position: absolute;
+                    top: 85px;
+                    left: 65px;">
+                    </img>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- ***** Special Area End ***** -->
+
+    <!-- ***** Awesome Features Start ***** -->
+    <section class="awesome-feature-area bg-white section_padding_0_50 clearfix" id="features">
+        <div class="container">
+
+
+
+            <div>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Heading Text -->
+                        <div class=" text-center" style="padding: 0px 0px 20px 0px;">
+                            <h2>Communication</h2>
+                            <div class="line-shape"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="tel:+918104598593"><img src="icon/Call.png" style="width: calc(100vw /3);"></a>
+                    <a href="sms:+918104598593?body=Contact with SNG via SMS"><img src="icon/message.png"
+                            style="width: calc(100vw /3);"></a>
+                    <a href="mailto:smitshetye33@gmail.com"><img src="icon/email.png" style="width: calc(100vw /3);"></a>
+                    <a href="https://www.google.tn/maps?hl=fr&amp;tab=il"><img src="icon/map.png"
+                            style="width: calc(100vw /3);"></a>
+                    <a href="https://play.google.com/"><img src="icon/playstore.png" style="width: calc(100vw /3);"></a>
+                    <a href="https://www.apple.com/fr/ios/app-store/"><img src="icon/applestore.png"
+                            style="width: calc(100vw /3);"></a>
+                </div>
+
+                <div class="col-12">
+                    <div class=" text-center" style="padding: 40px 0px 20px 0px;">
+                        <h2>Files Interaction</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="width: calc(100vw /6);"></div>
+                    <form action="#" enctype='multipart/form-data'>
+                        <input type="file" style="display:none;" id="file" name="file"/> 
+                        <img src="icon/upload.png" style="width: calc(100vw /3);"
+                            onclick="document.getElementById('file').click();">
+                    </form>
+
+                    <a href="http://www.africau.edu/images/default/sample.pdf" download>
+                        <img src="icon/download.png" style="width: calc(100vw /3);">
+                    </a> 
+                </div>
+
+                <div class="col-12">
+                    <div class=" text-center" style="padding: 40px 0px 20px 0px;">
+                        <h2>Notifications</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a onclick="jsAlert()"><img src="icon/alert.png" style="width: calc(100vw /3);"></a>
+                    <a onclick="toast()"><img src="icon/Toast.png" style="width: calc(100vw /3);"></a>
+                    <a onclick="snackbar()"><img src="icon/Snackbar.png" style="width: calc(100vw /3);"></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ***** Awesome Features End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-social-icon text-center section_padding_70 clearfix">
+
+        <!-- social icon-->
+        <!-- <div class="footer-social-icon">
+            <a href="https://www.facebook.com/smitshetye/" target="black"><i class=" fa fa-facebook"
+                    aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/" target="black"><i
+                    class=" fa fa-youtube" aria-hidden="true"></i></a>
+        </div> -->
+        <!-- Foooter Text-->
+        <div class="copyright-text">
+            <p>© 2023 All Rights Reserved. Created by SNG.</p>
+        </div>
+    </footer>
+    <!-- ***** Footer Area Start ***** -->
+   
+    <script>
+        function jsAlert() {
+            alert("Hello! I am an JS alert box!");
+        }
+
+        function toast() {
+            var x = document.getElementById("toast");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+        function snackbar() {
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+    </script>
+    <!-- Jquery-2.2.4 JS -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap-4 Beta JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All Plugins JS -->
+    <script src="js/plugins.js"></script>
+    <!-- Slick Slider Js-->
+    <script src="js/slick.min.js"></script>
+    <!-- Footer Reveal JS -->
+    <script src="js/footer-reveal.min.js"></script>
+    <!-- Active JS -->
+    <script src="js/active.js"></script>
+
+    <div id="toast">SNG : This is a TOAST message form app</div>
+    <div id="snackbar">SNG : This is a SNACKBAR message form app</div>
+  <script>
+        $("#url_form").on("submit", function(event){     
+
+            // prevent form from being submitted
+            event.preventDefault();
+
+            // get value of text box using .val()
+            name = $("#url").val();
+ 
+            // redirect the user.. 
+            window.location.href = name;
+             
+        });
+    </script>
+</body>
+</html>
